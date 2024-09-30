@@ -11,14 +11,13 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '0.0.1' );
 }
 
-// Load partials
-
 $roots_includes = array(
-	'/inc/functions/defaults.php',
+	'/inc/functions/class-tgm-plugin-activation.php',
 	'/inc/functions/clean.php',
-	'/inc/functions/theme-options.php',
+	'/inc/functions/defaults.php',
+	'/inc/functions/plugins.php',
 	'/inc/functions/styles.php',
-	'/inc/functions/shortcodes.php',
+	'/inc/functions/theme-options.php',
 );
 
 foreach($roots_includes as $file){
@@ -30,4 +29,16 @@ foreach($roots_includes as $file){
 require_once $filepath;
 }
 
-unset($file, $filepath);
+unset($file, $filepath); 
+
+function wpdocs_custom_admin_footer_text() {
+    return '<a href="https://drive.google.com/drive/folders/19JpzmZZYlyXYA-SPcdIR21nC7zSYb71k?usp=sharing" target="_blank">Developer Reference</a>';
+}
+add_filter( 'admin_footer_text', 'wpdocs_custom_admin_footer_text' );
+
+
+function siteURL() {
+	echo '<span>' . get_site_url() . '</span>';
+}
+
+add_shortcode('siteURL', 'siteURL');

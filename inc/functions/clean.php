@@ -62,7 +62,3 @@ add_filter( 'woocommerce_admin_features', function ( $features ) {
 
 } );
 
-// Disable Google Fonts in Elementor
-
-add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
-

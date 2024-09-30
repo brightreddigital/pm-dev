@@ -16,23 +16,11 @@ N.B. This stylesheet is for Bright Red Theme only. Individual site content css c
 	Imports 
 =============== */
 
-@import var(--import);
-@import 'inc/css/global/reset.css';
-@import 'inc/css/global/typography.css';
-@import 'inc/css/global/buttons.css';
-@import 'inc/css/global/icons.css';
-@import 'inc/css/global/forms.css';
-@import 'inc/css/global/blog.css';
-@import 'inc/css/global/custom_helpers.css';
+@import 'inc/css/reset.css';
+@import 'inc/css/helpers.css';
 
 
 /* Root colours */
-
-:root {
-	--light-grey: #dadada;
-	--extra-light-grey: #fafafa;
-	--white: #ffffff;
-}
 
 
 
