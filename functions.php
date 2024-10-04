@@ -11,6 +11,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '0.0.1' );
 }
 
+// Includes
+
 $roots_includes = array(
 	'/inc/functions/class-tgm-plugin-activation.php',
 	'/inc/functions/clean.php',
@@ -29,6 +31,8 @@ foreach($roots_includes as $file){
 require_once $filepath;
 }
 
+// Link to developer resources in admin area
+
 unset($file, $filepath); 
 
 function wpdocs_custom_admin_footer_text() {
@@ -36,9 +40,17 @@ function wpdocs_custom_admin_footer_text() {
 }
 add_filter( 'admin_footer_text', 'wpdocs_custom_admin_footer_text' );
 
-
+// Shortcodes
 function siteURL() {
 	echo '<span>' . get_site_url() . '</span>';
 }
 
 add_shortcode('siteURL', 'siteURL');
+
+// Add css styles that reference elementor variables
+function on_elementor_load() {
+
+	wp_enqueue_style( 'elementor-styles', get_template_directory_uri() . '/inc/css/elementor.css' );
+
+}
+add_action( 'elementor/loaded', 'on_elementor_load' );
