@@ -47,10 +47,21 @@ function siteURL() {
 
 add_shortcode('siteURL', 'siteURL');
 
-// Add css styles that reference elementor variables
-function on_elementor_load() {
 
-	wp_enqueue_style( 'elementor-styles', get_template_directory_uri() . '/inc/css/elementor.css' );
+// Remove menu items if not admin
 
-}
-add_action( 'elementor/loaded', 'on_elementor_load' );
+
+
+	function remove_menus(){
+
+		 if( !current_user_can( 'administrator' ) ){
+
+			remove_menu_page( 'tools.php' );
+
+		}
+
+	};
+
+	add_action( 'admin_menu', 'remove_menus' );
+
+

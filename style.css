@@ -18,6 +18,7 @@ N.B. This stylesheet is for Bright Red Theme only. Individual site content css c
 
 @import 'inc/css/reset.css';
 @import 'inc/css/helpers.css';
+@import 'inc/css/custom.css';
 
 
 /* Root colours */
